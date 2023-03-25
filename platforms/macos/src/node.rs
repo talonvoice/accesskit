@@ -295,7 +295,7 @@ impl<'a> NodeWrapper<'a> {
         if self.is_root() && self.node_state().role() == Role::Window {
             // If the group element that we expose for the top-level window
             // includes a title, VoiceOver behavior is broken.
-            return None;
+            return Some("root".into());
         }
         match self {
             Self::Node(node) => node.name(),
